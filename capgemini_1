@@ -1,0 +1,68 @@
+todo library.py
+
+books = []
+issued_books = []
+
+# add books
+def add_books():
+    name=input("Enter the nameof the books:")
+    books.append(name)
+
+# show books
+def show_books():
+    if len(books) == 0:
+        print("no books")
+    else:
+        print("books available")
+        for b in books :
+            print(b)
+
+#issue books
+def issue_books():
+    show_books()
+    name = input("Enter the name of the books:")
+    if name in books:
+        books.remove(name)
+        issued_books.append(name)
+        print("books issued")
+    else:
+        print("books not available")
+
+# return books
+def return_books():
+    name = input("Enter the name of the books:")
+    if name in issued_books:
+        issued_books.remove(name)
+        books.append(name)
+        print("books returned")
+    else:
+        print("no books returned")
+
+
+
+def library ():
+    while True:
+        print("/n 1.add books")
+        print("2.show books")
+        print("3.issue books")
+        print("4.return books")
+        print("5.exit books")
+
+        choice = int(input("Enter your choice:"))
+        if choice == 1:
+            add_books()
+        elif choice == 2:
+            show_books()
+        elif choice == 3:
+            issue_books()
+        elif choice == 4:
+            return_books()
+        elif choice == 5:
+            print("thank you")
+            break
+        else:
+            print("invalid choice")
+
+
+
+library()
